@@ -162,7 +162,8 @@ function getRandomTip() {
         'Check the cursor, some images have links',
         'Try dragging characters or images...',
         'Typing makes sounds!',
-        '( ͡° ͜ʖ ͡°)'
+        '( ͡° ͜ʖ ͡°)',
+        'Typing help might help'
     ]
 
     const chosenTip = tips[Math.floor(Math.random() * tips.length)];
