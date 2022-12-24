@@ -51,4 +51,7 @@ span {
   pointer-events: none;
   opacity: 0.5;
 }
+img:hover{
+  border: black;
+}
 /*# sourceMappingURL=main.css.map */
