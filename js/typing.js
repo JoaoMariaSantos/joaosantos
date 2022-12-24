@@ -61,7 +61,7 @@ function search() {
             const searchResults = getSearchPosts(currentSearch);
             if (searchResults != null) {
                 appendPosts(searchResults);
-                setBackgroundText('Searched: ' + currentSearch);
+                setBackgroundText('Searched: ' + currentSearch + '<br>' + searchResults.length + ' results');
             } else {
                 getRandomTip();
             }
