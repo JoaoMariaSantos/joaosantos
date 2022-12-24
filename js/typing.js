@@ -6,7 +6,7 @@ const regex = /^[0-9a-zA-Z]+$/;
 const container = document.querySelector('#canvas');
 const backgroundText = document.querySelector('#instructions__text');
 
-const builtInKeywords = ['help', 'about'];
+const builtInKeywords = ['help', 'about', 'keywords'];
 
 let currentSearch = '';
 let currentLeft;
@@ -147,7 +147,7 @@ function getBuiltInResult(search) {
     } else if (search === builtInKeywords[1]) {
         setBackgroundText(about);
     } else if (search === builtInKeywords[2]) {
-        setBackgroundText(about);
+        setBackgroundText('keywords');
     }
 }
 
