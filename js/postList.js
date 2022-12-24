@@ -1,4 +1,4 @@
-import {Post} from '/js/post.js'
+import {Post} from '/joaosantos/js/post.js'
 
 let posts = [];
 
