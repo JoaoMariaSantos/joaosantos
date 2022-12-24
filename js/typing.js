@@ -1,4 +1,4 @@
-import { posts } from '/joaosantos/js/postList.js';
+import { posts } from '/joaosantos/js/postList.js'; /* /joaosantos */
 
 const about = "Hello! My name is João, I'm 22 years old and from Portugal. Currently doing a masters degree in Design and Multimedia and this website is an exercise for the course. Enjoy!";
 
@@ -11,10 +11,10 @@ const builtInKeywords = ['help', 'about', 'keywords'];
 let currentSearch = '';
 let currentLeft;
 
-const backspaceAudio = [new Audio('/joaosantos/assets/audio/back_1.wav'), new Audio('/joaosantos/assets/audio/back_2.wav'), new Audio('/joaosantos/assets/audio/back_3.wav')];
-const otherAudio = [new Audio('/joaosantos/assets/audio/other_1.wav'), new Audio('/joaosantos/assets/audio/other_2.wav'), new Audio('/joaosantos/assets/audio/other_3.wav')];
-const enterAudio = [new Audio('/joaosantos/assets/audio/enter_1.wav')];
-const deleteAudio = [new Audio('/joaosantos/assets/audio/delete_1.wav')];
+const backspaceAudio = [new Audio('/joaosantos/assets/audio/back_1.wav'), new Audio('/joaosantos/assets/audio/back_2.wav'), new Audio('/joaosantos/assets/audio/back_3.wav')]; /* /joaosantos */
+const otherAudio = [new Audio('/joaosantos/assets/audio/other_1.wav'), new Audio('/joaosantos/assets/audio/other_2.wav'), new Audio('/joaosantos/assets/audio/other_3.wav')]; /* /joaosantos */
+const enterAudio = [new Audio('/joaosantos/assets/audio/enter_1.wav')]; /* /joaosantos */
+const deleteAudio = [new Audio('/joaosantos/assets/audio/delete_1.wav')]; /* /joaosantos */
 
 resetLeftValue();
 
@@ -62,11 +62,13 @@ function search() {
             if (searchResults != null) {
                 appendPosts(searchResults);
                 setBackgroundText('Searched: ' + currentSearch + '<br>' + searchResults.length + ' results');
+                
             } else {
                 getRandomTip();
             }
+            resetLeftValue();
         }
-        if(isColor(currentSearch)){
+        if (isColor(currentSearch)) {
             console.log(currentSearch);
             document.querySelector('body').style.backgroundColor = currentSearch;
         }
@@ -136,9 +138,20 @@ function appendPost(post) {
         img.src = url;
         img.style.width = '15vw';
         img.style.left = getLeftValue();
+
+        if (img.complete) {
+            loaded();
+        } else {
+            img.addEventListener('load', loaded);
+        }
+
         a.append(img);
         container.append(a);
     })
+}
+
+function loaded(){
+    init();
 }
 
 function getBuiltInResult(search) {

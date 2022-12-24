@@ -1,4 +1,4 @@
-import {Post} from '/joaosantos/js/post.js'
+import {Post} from '/joaosantos/js/post.js' /* /joaosantos */
 
 let posts = [];
 
@@ -29,7 +29,7 @@ posts.push(new Post(
 posts.push(new Post(
     'yellow', 2020,
     ['drawing', 'painting', 'freehand', 'figure', 'face'],
-    ['https://drive.google.com/uc?export=view&id=1M8awtPx8293dxjWalxgpVteuzdT_C7zZ'],
+    ['https://drive.google.com/uc?export=view&id=1q-izxEo1soAdemuzndqifaFWCdKJHN-6'],
     '#'
 ))
 posts.push(new Post(
@@ -53,7 +53,7 @@ posts.push(new Post(
 posts.push(new Post(
     'Self Potrait', 2020,
     ['illustration', 'face', 'photoshop', 'blue'],
-    ['https://drive.google.com/uc?export=view&id=1CXPfaE_u96_P9WrJALuMVQsc_af8OSCN'],
+    ['https://drive.google.com/uc?export=view&id=1QB4fPXkxrLm6D3h3oPrnHpvOVySBfV5M'],
     '#'
 ))
 posts.push(new Post(
@@ -105,7 +105,7 @@ posts.push(new Post(
 
 posts.push(new Post(
     'Portfolio', 2022,
-    ['work', 'about', 'raimbow'],
+    ['work', 'about', 'rainbow'],
     ['https://drive.google.com/uc?export=view&id=1XWGBd43in2HCJ4Nhng03mU8UBZMjpvkY'],
     'https://drive.google.com/file/d/13rGG7dBeVYIX6Y5WWuYGHPa63e5FGqpK/view?usp=share_link'
 ))
