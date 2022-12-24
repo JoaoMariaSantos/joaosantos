@@ -1,4 +1,4 @@
-import { posts } from '/js/postList.js';
+import { posts } from '/joaosantos/js/postList.js';
 
 const about = "Hello! My name is João, I'm 22 years old and from Portugal. Currently doing a masters degree in Design and Multimedia and this website is an exercise for the course. Enjoy!";
 
@@ -11,10 +11,10 @@ const builtInKeywords = ['help', 'about'];
 let currentSearch = '';
 let currentLeft;
 
-const backspaceAudio = [new Audio('/assets/audio/back_1.wav'), new Audio('/assets/audio/back_2.wav'), new Audio('/assets/audio/back_3.wav')];
-const otherAudio = [new Audio('/assets/audio/other_1.wav'), new Audio('/assets/audio/other_2.wav'), new Audio('/assets/audio/other_3.wav')];
-const enterAudio = [new Audio('/assets/audio/enter_1.wav')];
-const deleteAudio = [new Audio('/assets/audio/delete_1.wav')];
+const backspaceAudio = [new Audio('/joaosantos/assets/audio/back_1.wav'), new Audio('/joaosantos/assets/audio/back_2.wav'), new Audio('/joaosantos/assets/audio/back_3.wav')];
+const otherAudio = [new Audio('/joaosantos/assets/audio/other_1.wav'), new Audio('/joaosantos/assets/audio/other_2.wav'), new Audio('/joaosantos/assets/audio/other_3.wav')];
+const enterAudio = [new Audio('/joaosantos/assets/audio/enter_1.wav')];
+const deleteAudio = [new Audio('/joaosantos/assets/audio/delete_1.wav')];
 
 resetLeftValue();
 
