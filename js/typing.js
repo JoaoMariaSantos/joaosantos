@@ -147,7 +147,7 @@ function getBuiltInResult(search) {
     } else if (search === builtInKeywords[1]) {
         setBackgroundText(about);
     } else if (search === builtInKeywords[2]) {
-        setBackgroundText('keywords');
+        setBackgroundText('keywords keywords keywords keywords keywords keywords keywords keywords keywords keywords keywords keywords keywords keywords keywords keywords keywords keywords keywords keywords keywords keywords keywords keywords keywords keywords keywords keywords keywords keywords keywords keywords keywords keywords keywords keywords keywords keywords keywords keywords keywords keywords keywords keywords keywords keywords keywords keywords keywords keywords keywords keywords keywords');
     }
 }
 
