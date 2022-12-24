@@ -52,10 +52,10 @@ span {
   opacity: 0.5;
 }
 
-image {
+img {
   position: absolute;
   filter: saturate(0);
 }
-image:hover {
+img:hover {
   filter: "";
 }/*# sourceMappingURL=main.css.map */
