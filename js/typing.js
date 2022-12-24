@@ -5,9 +5,11 @@ const about = "Hello! My name is João, I'm 22 years old and from Portugal. Curr
 const regex = /^[0-9a-zA-Z]+$/;
 const container = document.querySelector('#canvas');
 const backgroundText = document.querySelector('#instructions__text');
+const inputText = document.querySelector('#inputText');
 
 const builtInKeywords = ['help', 'about', 'keywords'];
 
+let oldSearch; //for mobile
 let currentSearch = '';
 let currentLeft;
 
@@ -17,6 +19,7 @@ const enterAudio = [new Audio('/joaosantos/assets/audio/enter_1.wav')]; /* /joao
 const deleteAudio = [new Audio('/joaosantos/assets/audio/delete_1.wav')]; /* /joaosantos */
 
 resetLeftValue();
+detectMobileInput();
 
 window.addEventListener('keydown', function (event) {
     const key = event.key.toLocaleLowerCase();
@@ -37,6 +40,43 @@ window.addEventListener('keydown', function (event) {
         playSound(deleteAudio);
     }
 });
+
+function detectMobileInput() {
+    inputText.addEventListener('input', manageInput);
+    inputText.addEventListener('submit', submittedInput);
+
+    /* if (inputText.display === 'block') { //display returns undefined??
+        console.log('is block'); 
+        inputText.addEventListener('input', manageInput);
+        inputText.addEventListener('submit', submittedInput);
+        window.removeEventListener('keydown');
+    } */
+}
+
+function manageInput(e) {
+    console.log('yoyoyo');
+    currentSearch = e.target.value;
+    currentSearch = currentSearch.toLowerCase();
+    currentSearch = currentSearch.replace(/[^a-z0-9]+/, '');
+    e.target.value = currentSearch;
+
+    if (currentSearch !== oldSearch) {
+        if (currentSearch > oldSearch) {
+            appendCharacter(currentSearch.slice(-1));
+        }
+        else if (currentSearch < oldSearch) {
+            removeCharacter();
+        }
+    }
+    playSound(otherAudio);
+    oldSearch = currentSearch;
+}
+
+function submittedInput(e) {
+    e.target.value = '';
+    search();
+    playSound(enterAudio);
+}
 
 function typed(c) {
     currentSearch += c;
@@ -62,7 +102,7 @@ function search() {
             if (searchResults != null) {
                 appendPosts(searchResults);
                 setBackgroundText('Searched: ' + currentSearch + '<br>' + searchResults.length + ' results');
-                
+
             } else {
                 getRandomTip();
             }
@@ -150,7 +190,7 @@ function appendPost(post) {
     })
 }
 
-function loaded(){
+function loaded() {
     init();
 }
 
