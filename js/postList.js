@@ -105,7 +105,7 @@ posts.push(new Post(
 
 posts.push(new Post(
     'Portfolio', 2022,
-    ['work', 'about', 'raimbow'],
+    ['work', 'about', 'rainbow'],
     ['https://drive.google.com/uc?export=view&id=1XWGBd43in2HCJ4Nhng03mU8UBZMjpvkY'],
     'https://drive.google.com/file/d/13rGG7dBeVYIX6Y5WWuYGHPa63e5FGqpK/view?usp=share_link'
 ))
