@@ -54,8 +54,4 @@ span {
 
 img {
   position: absolute;
-  filter: saturate(0);
-}
-img:hover {
-  filter: saturate(1);
 }/*# sourceMappingURL=main.css.map */
