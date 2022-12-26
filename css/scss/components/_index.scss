@@ -47,11 +47,9 @@ img {
         filter: brightness(90%) saturate(80%);
     }
     &.hasLink{
-        //border: 2px solid rgba(0, 0, 0, 0);
-        border-radius: 0;
+        border: 2px solid rgba(0, 0, 0, 0);
         &:hover{
-            //border: 2px solid black;
-            border-radius: 8px;
+            border: 2px solid black;
         }
     }
 }
@@ -88,5 +86,11 @@ input {
             border: 1px solid black;
             background-color: white;
         }
+    }
+}
+
+img {
+    &.hasLink{
+        border: 2px solid black;
     }
 }
