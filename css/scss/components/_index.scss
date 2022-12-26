@@ -41,10 +41,34 @@ span {
 
 img {
     position: absolute;
+    filter: brightness(100%);
+    cursor: grab;
+    &:hover {
+        filter: brightness(90%) saturate(80%);
+    }
+    &.hasLink{
+        //border: 2px solid rgba(0, 0, 0, 0);
+        border-radius: 0;
+        &:hover{
+            //border: 2px solid black;
+            border-radius: 8px;
+        }
+    }
 }
 
 input {
     display: none;
+}
+
+#blocker{
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    cursor: pointer;
 }
 
 @media (pointer:coarse) {

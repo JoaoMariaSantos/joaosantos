@@ -8,7 +8,7 @@
 
 body {
   font-family: "Space Mono", monospace;
-  background-color: white;
+  background-color: #F2F3F5;
 }
 
 span {
@@ -54,10 +54,33 @@ span {
 
 img {
   position: absolute;
+  filter: brightness(100%);
+  cursor: -webkit-grab;
+  cursor: grab;
+}
+img:hover {
+  filter: brightness(90%) saturate(80%);
+}
+img.hasLink {
+  border-radius: 0;
+}
+img.hasLink:hover {
+  border-radius: 8px;
 }
 
 input {
   display: none;
+}
+
+#blocker {
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  cursor: pointer;
 }
 
 @media (pointer: coarse) {

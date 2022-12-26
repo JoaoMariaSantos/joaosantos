@@ -58,7 +58,7 @@ posts.push(new Post(
 ))
 posts.push(new Post(
     'CCDM', 2020,
-    ['web', 'webdesign', 'website', 'html', 'javascript', 'graphic', 'graphicdesign', 'brand', 'norms', 'identity', 'red'],
+    ['web', 'webdesign', 'website', 'html', 'javascript', 'graphic', 'graphicdesign', 'brand', 'norms', 'identity', 'red', 'featured'],
     ['https://drive.google.com/uc?export=view&id=1pzB6dT5DiEH_j-ipl6JgT6ZGm9JOLzne', 'https://drive.google.com/uc?export=view&id=1hErG8c1yAiWaoBlc9K9Sh5TlpmNKh4bA'],
     'https://student.dei.uc.pt/~joaosantos/ccdm/index.html'
 ))
@@ -69,10 +69,10 @@ posts.push(new Post(
     'https://youtu.be/uytLmUhrND8'
 ))
 posts.push(new Post(
-    'Branch player', 2020,
-    ['audio', 'visualizer', 'audiovisualizer', 'processing', 'music', 'black'],
+    'Audio Visualizer', 2020,
+    ['audio', 'visualizer', 'audiovisualizer', 'processing', 'branch', 'camera', 'text', 'sound', 'music', 'black', 'featured'],
     ['https://drive.google.com/uc?export=view&id=18AetlkuFdhUXo_u2dayISlCg6t2h9t2S', 'https://drive.google.com/uc?export=view&id=1NAu-_AIf0ED12h6x85YH7_sS9Br60nv8'],
-    '#' //gravar video
+    'https://youtu.be/I7m-f7xuOgA'
 ))
 posts.push(new Post(
     'Calkins Hill', 2020,
@@ -98,6 +98,12 @@ posts.push(new Post(
     ['https://drive.google.com/uc?export=view&id=1wwIpZ4qFjAs3_ygRhfJKGAITf2JhBPXe'],
     '#'
 ))
+posts.push(new Post(
+    'Malleus', 2022,
+    ['audio', 'ai', 'gesture', 'instalation', 'sound', 'melody', 'interactive', 'featured'],
+    ['https://lh3.googleusercontent.com/v07VZIW8UeZ9v9To1Vnsq-7qGyq20jAF1sQfAgFiZIALhu3wbFDkuH-25uyQ1MbFiy0=w2400'],
+    'https://youtu.be/nAoIleVTqas'
+))
 
 
 
@@ -107,7 +113,7 @@ posts.push(new Post(
     'Portfolio', 2022,
     ['work', 'about', 'rainbow'],
     ['https://drive.google.com/uc?export=view&id=1XWGBd43in2HCJ4Nhng03mU8UBZMjpvkY'],
-    'https://drive.google.com/file/d/13rGG7dBeVYIX6Y5WWuYGHPa63e5FGqpK/view?usp=share_link'
+    'https://drive.google.com/file/d/1mGWpbq1SQyNWfmL_Ek3SiI2agA9B3_Ra/view?usp=share_link'
 ))
 
 
