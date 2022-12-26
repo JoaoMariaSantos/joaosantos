@@ -80,7 +80,7 @@ function manageInput(e) {
 }
 
 function submittedInput(e) {
-    e.target.reset();
+    inputText.value = '';
     search();
     playSound(enterAudio);
 }
