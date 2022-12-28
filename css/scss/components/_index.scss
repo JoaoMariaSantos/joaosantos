@@ -34,7 +34,6 @@ span {
         height: min-content;
         color: $black;
         font-size: 3vw;
-        pointer-events: none;
         opacity: 0.9;
     }
 }
@@ -73,10 +72,10 @@ input {
 #blocker{
     display: block;
     position: absolute;
-    left: 0;
-    top: 0;
-    width: 100vw;
-    height: 100vh;
+    left: 20vw;
+    top: 20vw;
+    width: 60vw;
+    height: 60vh;
     z-index: -1;
     cursor: pointer;
 }
