@@ -8,7 +8,8 @@ const regex = /^[0-9a-zA-Z]+$/;
 const container = document.querySelector('#canvas');
 const backgroundText = document.querySelector('#instructions__text');
 const inputText = document.querySelector('#inputText');
-const blocker = document.querySelector('#blocker');
+/* const blocker = document.querySelector('#blocker'); */
+const blocker = document.querySelector('#instructions__text');
 
 const portfolioURL = 'https://drive.google.com/file/d/1mGWpbq1SQyNWfmL_Ek3SiI2agA9B3_Ra/view?usp=share_link';
 const spotifyURL = 'https://open.spotify.com/user/tellajoke?si=a044e4969dbc457d';
