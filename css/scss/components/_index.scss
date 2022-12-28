@@ -35,7 +35,19 @@ span {
         color: $black;
         font-size: 3vw;
         pointer-events: none;
-        opacity: 0.5;
+        opacity: 0.9;
+    }
+}
+
+p.box2d{
+    p {
+        display: block;
+        width: 50%;
+        height: min-content;
+        color: $black;
+        font-size: 2vw;
+        pointer-events: none;
+        opacity: 1;
     }
 }
 

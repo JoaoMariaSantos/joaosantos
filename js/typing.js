@@ -1,6 +1,7 @@
 import { posts } from '/joaosantos/js/postList.js'; /* /joaosantos */
 
 const about = "Hello! My name is João, I'm 22 years old and from Portugal. Currently doing a masters degree in Design and Multimedia and this website is an exercise for the course. Enjoy!";
+const help = "Use letters and numbers to write, enter to search, backspace to erase the last character and write or press delete to reset the screen.";
 
 const regex = /^[0-9a-zA-Z]+$/;
 
@@ -12,7 +13,7 @@ const blocker = document.querySelector('#blocker');
 const portfolioURL = 'https://drive.google.com/file/d/1mGWpbq1SQyNWfmL_Ek3SiI2agA9B3_Ra/view?usp=share_link';
 const spotifyURL = 'https://open.spotify.com/user/tellajoke?si=a044e4969dbc457d';
 
-const builtInKeywords = ['help', 'about', 'keywords', 'reset', 'delete', 'erase', 'refresh', 'portfolio', 'spotify'];
+const builtInKeywords = ['help', 'about', 'keywords', 'reset', 'delete', 'erase', 'refresh', 'portfolio', 'spotify', 'random'];
 
 let oldSearch; //for mobile
 let currentSearch = '';
@@ -23,6 +24,22 @@ const backspaceAudio = [new Audio('/joaosantos/assets/audio/back_1.wav'), new Au
 const otherAudio = [new Audio('/joaosantos/assets/audio/other_1.wav'), new Audio('/joaosantos/assets/audio/other_2.wav'), new Audio('/joaosantos/assets/audio/other_3.wav')]; /* /joaosantos */
 const enterAudio = [new Audio('/joaosantos/assets/audio/enter_1.wav')]; /* /joaosantos */
 const deleteAudio = [new Audio('/joaosantos/assets/audio/delete_1.wav')]; /* /joaosantos */
+
+const tips = [
+    'Try writing a color and then pressing enter!',
+    'Type portfolio to get the pdf...',
+    "'About' gets you my information",
+    'Use letters or numbers to write and enter to search',
+    'You can press backspace to erase the last character if you make a typo',
+    'Writing delete erases the screen',
+    "The border around the images means there's a link!",
+    'Try dragging characters or images...',
+    'Typing makes sounds',
+    'Type featured to get some of my favorite works',
+    'Type spotify to get yourself some nice playlists',
+    '( ͡° ͜ʖ ͡°)',
+    'Try breaking the website'
+]
 
 resetLeftValue();
 detectMobileInput();
@@ -35,6 +52,7 @@ window.addEventListener('keydown', function (event) {
     }
     else if (key === 'enter') {
         search();
+        inputText.value = '';
         playSound(enterAudio);
     }
     else if (key === 'backspace') {
@@ -61,7 +79,6 @@ function detectMobileInput() {
 }
 
 function manageInput(e) {
-    console.log('yoyoyo');
     currentSearch = e.target.value;
     currentSearch = currentSearch.toLowerCase();
     currentSearch = currentSearch.replace(/[^a-z0-9]+/, '');
@@ -99,12 +116,31 @@ function appendCharacter(c) {
     init();
 }
 
+function appendParagraph(text) {
+    const par = document.createElement('p');
+    par.innerHTML = text;
+    par.style.left = getLeftValue();
+    par.style.width = '50%';
+    par.classList.add('box2d');
+    container.append(par);
+    init();
+}
+
 function search() {
     resetLeftValue();
     if (currentSearch.length > 0) {
         if (builtInKeywords.includes(currentSearch)) {
             getBuiltInResult(currentSearch);
-        } else {
+        } else if(isInt(currentSearch)){
+            const numSearch = parseInt(currentSearch);
+            if(numSearch < posts.length){
+                const searchResults = getNPosts(numSearch);
+                appendPosts(searchResults);
+                setBackgroundText(numSearch + " projects");
+            }
+            else setBackgroundText("That's too many projects...");
+        }
+        else {
             const searchResults = getSearchPosts(currentSearch);
             if (searchResults != null) {
                 appendPosts(searchResults);
@@ -165,6 +201,24 @@ function getSearchPosts(search) {
     return [...new Set(searchResults)];
 }
 
+function getNPosts(n){
+    console.log(n);
+
+    let searchResults = [];
+    let numbersArray = [];
+    for(var i = 0; i < posts.length; i++) {
+        numbersArray.push(i);
+    }
+    numbersArray = shuffle(numbersArray);
+    numbersArray = numbersArray.slice(0, n);
+
+    console.log(numbersArray);
+
+    numbersArray.forEach(i => searchResults.push(posts[i]));
+
+    return searchResults;
+}
+
 function appendPosts(posts) {
     posts.forEach(post => { appendPost(post) });
 }
@@ -202,42 +256,37 @@ function loaded() {
     init();
 }
 
-function getBuiltInResult(search) { //['help', 'about', 'keywords', 'reset', 'delete', 'erase', 'refresh', 'portfolio', 'spotify'];
-    if (search === 'help') {
-        setBackgroundText('Use letters and numbers to write, enter to search, backspace to erase last character and delete to erase the screen.');
-    } else if (search === 'about') {
+function getBuiltInResult(srch) { //['help', 'about', 'keywords', 'reset', 'delete', 'erase', 'refresh', 'portfolio', 'spotify'];
+    if (srch === 'help') {
+        setBackgroundText(help);
+        appendParagraph(help)
+    } else if (srch === 'about') {
         setBackgroundText(about);
-    } else if (search === 'keywords') {
+        appendParagraph(about);
+    } else if (srch === 'keywords') {
         setBackgroundText('keywords keywords keywords keywords keywords keywords keywords keywords keywords keywords keywords keywords keywords keywords keywords keywords keywords keywords keywords keywords keywords keywords keywords keywords keywords keywords keywords keywords keywords keywords keywords keywords keywords keywords keywords keywords keywords keywords keywords keywords keywords keywords keywords keywords keywords keywords keywords keywords keywords keywords keywords keywords keywords');
-    } else if (search === 'reset' || search === 'delete' || search === 'erase') {
+    } else if (srch === 'reset' || srch === 'delete' || srch === 'erase') {
         resetCanvas();
-    } else if (search === 'refresh') {
+    } else if (srch === 'refresh') {
         refresh();
-    } else if (search === 'portfolio') {
+    } else if (srch === 'portfolio') {
         window.open(portfolioURL, '_blank');
-    } else if (search === 'spotify') {
+    } else if (srch === 'spotify') {
         window.open(spotifyURL, '_blank');
+    } else if (srch === 'random') {
+        const searchResults = [posts[Math.floor(Math.random()*posts.length)]];
+        appendPosts(searchResults);
     }
 }
 
 function getRandomTip() {
-    const tips = [
-        'Try writing a color and then pressing enter!',
-        'Type portfolio to get the pdf...',
-        "'About' gets you my information :)",
-        'Use letters or numbers to write and enter to search',
-        'You can press backspace to erase the last character if you make a typo',
-        'Writing delete erases the screen',
-        "The border around the images means there's a link!",
-        'Try dragging characters or images...',
-        'Typing makes sounds',
-        '( ͡° ͜ʖ ͡°)',
-        'Type featured to get some of my favorite works',
-        'Type spotify to get yourself some nice playlists',
-        'Try breaking the website'
-    ]
 
-    const chosenTip = tips[Math.floor(Math.random() * tips.length)];
+    const pickedIndex = Math.floor(Math.random() * (tips.length - 1))
+    const chosenTip = tips[pickedIndex];
+
+    const lastTip = tips[tips.length - 1]
+    tips[tips.length - 1] = chosenTip;
+    tips[pickedIndex] = lastTip;
 
     setBackgroundText(chosenTip);
 }
@@ -278,3 +327,26 @@ function testRegex(c) {
 function refresh() {
     document.location.reload();
 }
+
+function isInt(num){
+    const parsed = parseInt(num);
+    return !isNaN(parsed);
+}
+
+function shuffle(array) {
+    let currentIndex = array.length,  randomIndex;
+  
+    // While there remain elements to shuffle.
+    while (currentIndex != 0) {
+  
+      // Pick a remaining element.
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex--;
+  
+      // And swap it with the current element.
+      [array[currentIndex], array[randomIndex]] = [
+        array[randomIndex], array[currentIndex]];
+    }
+  
+    return array;
+  }
