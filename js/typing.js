@@ -1,4 +1,4 @@
-import { posts } from '/js/postList.js'; /* /joaosantos */
+import { posts } from '/joaosantos/js/postList.js'; /* /joaosantos */
 
 const about = "Hello! My name is João, I'm 22 years old and from Portugal. Currently doing a masters degree in Design and Multimedia and this website is an exercise for the course. Enjoy!";
 const help = "Use letters and numbers to write and press enter to search. Pressing backspace will erase the last character. Write or press delete to reset the screen.";
