@@ -12,8 +12,9 @@ const blocker = document.querySelector('#instructions__text');
 
 const portfolioURL = 'https://drive.google.com/file/d/1mGWpbq1SQyNWfmL_Ek3SiI2agA9B3_Ra/view?usp=share_link';
 const spotifyURL = 'https://open.spotify.com/user/tellajoke?si=a044e4969dbc457d';
+const linkedinURL = 'https://www.linkedin.com/in/joaomariasantos/';
 
-const builtInKeywords = ['help', 'about', 'keywords', 'reset', 'delete', 'erase', 'refresh', 'portfolio', 'spotify', 'random'];
+const builtInKeywords = ['help', 'about', 'keywords', 'reset', 'delete', 'erase', 'refresh', 'portfolio', 'spotify', 'random', 'linkedin'];
 
 let oldSearch; //for mobile
 let currentSearch = '';
@@ -133,9 +134,9 @@ function search() {
     if (currentSearch.length > 0) {
         if (builtInKeywords.includes(currentSearch)) {
             getBuiltInResult(currentSearch);
-        } else if(isInt(currentSearch)){
+        } else if (isInt(currentSearch)) {
             const numSearch = parseInt(currentSearch);
-            if(numSearch < posts.length){
+            if (numSearch < posts.length) {
                 const searchResults = getNPosts(numSearch);
                 appendPosts(searchResults);
                 setBackgroundText(numSearch + " projects");
@@ -203,12 +204,12 @@ function getSearchPosts(search) {
     return [...new Set(searchResults)];
 }
 
-function getNPosts(n){
+function getNPosts(n) {
     console.log(n);
 
     let searchResults = [];
     let numbersArray = [];
-    for(var i = 0; i < posts.length; i++) {
+    for (var i = 0; i < posts.length; i++) {
         numbersArray.push(i);
     }
     numbersArray = shuffle(numbersArray);
@@ -259,7 +260,41 @@ function loaded() {
 }
 
 function getBuiltInResult(srch) { //['help', 'about', 'keywords', 'reset', 'delete', 'erase', 'refresh', 'portfolio', 'spotify'];
-    if (srch === 'help') {
+    switch (srch) {
+        case 'help':
+            setBackgroundText(help);
+            appendParagraph(help);
+            break;
+        case 'about':
+            setBackgroundText(about);
+            appendParagraph(about);
+            break;
+        case 'keywords':
+            setBackgroundText('keywords keywords keywords keywords keywords keywords keywords keywords keywords keywords keywords keywords keywords keywords keywords keywords keywords keywords keywords keywords keywords keywords keywords keywords keywords keywords keywords keywords keywords keywords keywords keywords keywords keywords keywords keywords keywords keywords keywords keywords keywords keywords keywords keywords keywords keywords keywords keywords keywords keywords keywords keywords keywords');
+            break;
+        case 'reset':
+        case 'delete':
+        case 'erase':
+            resetCanvas();
+            break;
+        case 'refresh':
+            refresh();
+            break;
+        case 'portfolio':
+            window.open(portfolioURL, '_blank');
+            break;
+        case 'spotify':
+            window.open(spotifyURL, '_blank');
+            break;
+        case 'linkedin':
+            window.open(linkedinURL, '_blank');
+            break;
+        case 'random':
+            const searchResults = [posts[Math.floor(Math.random()*posts.length)]];
+            break;
+    }
+
+    /* if (srch === 'help') {
         setBackgroundText(help);
         appendParagraph(help)
     } else if (srch === 'about') {
@@ -278,7 +313,7 @@ function getBuiltInResult(srch) { //['help', 'about', 'keywords', 'reset', 'dele
     } else if (srch === 'random') {
         const searchResults = [posts[Math.floor(Math.random()*posts.length)]];
         appendPosts(searchResults);
-    }
+    } */
 }
 
 function getRandomTip() {
@@ -330,26 +365,26 @@ function refresh() {
     document.location.reload();
 }
 
-function isInt(num){
+function isInt(num) {
     const parsed = parseInt(num);
     let isnum = /^\d+$/.test(num);
     return !isNaN(parsed) && isnum;
 }
 
 function shuffle(array) {
-    let currentIndex = array.length,  randomIndex;
-  
+    let currentIndex = array.length, randomIndex;
+
     // While there remain elements to shuffle.
     while (currentIndex != 0) {
-  
-      // Pick a remaining element.
-      randomIndex = Math.floor(Math.random() * currentIndex);
-      currentIndex--;
-  
-      // And swap it with the current element.
-      [array[currentIndex], array[randomIndex]] = [
-        array[randomIndex], array[currentIndex]];
+
+        // Pick a remaining element.
+        randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex--;
+
+        // And swap it with the current element.
+        [array[currentIndex], array[randomIndex]] = [
+            array[randomIndex], array[currentIndex]];
     }
-  
+
     return array;
-  }
+}
