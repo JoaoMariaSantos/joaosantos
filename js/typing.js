@@ -1,4 +1,4 @@
-import { posts } from '/joaosantos/js/postList.js'; /* /joaosantos */
+import { posts } from '/js/postList.js'; /* /joaosantos */
 
 const about = "Hello! My name is João, I'm 22 years old and from Portugal. Currently doing a masters degree in Design and Multimedia and this website is an exercise for the course. Enjoy!";
 const help = "Use letters and numbers to write and press enter to search. Pressing backspace will erase the last character. Write or press delete to reset the screen.";
@@ -20,7 +20,7 @@ let currentSearch = '';
 let currentLeft;
 let lastTip;
 
-const audioPath = '/joaosantos/assets/audio/';  /* /joaosantos */
+const audioPath = '/assets/audio/';  /* /joaosantos */
 
 const backspaceAudio = [new Audio(audioPath + 'back_1.wav'), new Audio(audioPath + 'back_2.wav'), new Audio(audioPath + 'back_3.wav')];
 const otherAudio = [new Audio(audioPath + 'other_1.wav'), new Audio(audioPath + 'other_2.wav'), new Audio(audioPath + 'other_3.wav')];
