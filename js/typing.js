@@ -259,7 +259,7 @@ function loaded() {
     init();
 }
 
-function getBuiltInResult(srch) { //['help', 'about', 'keywords', 'reset', 'delete', 'erase', 'refresh', 'portfolio', 'spotify'];
+function getBuiltInResult(srch) { //['help', 'about', 'keywords', 'reset', 'delete', 'erase', 'refresh', 'portfolio', 'spotify', 'linkedin', 'random'];
     switch (srch) {
         case 'help':
             setBackgroundText(help);
@@ -292,6 +292,7 @@ function getBuiltInResult(srch) { //['help', 'about', 'keywords', 'reset', 'dele
         case 'random':
             const searchResults = [posts[Math.floor(Math.random()*posts.length)]];
             appendPosts(searchResults);
+            setBackgroundText('A random project');
             break;
     }
 
