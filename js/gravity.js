@@ -1,3 +1,4 @@
+/* https://techinscribed.com/make-google-gravity-pages/ */
 const bottomMargin = 30;
 
 var delta = [0, 0];

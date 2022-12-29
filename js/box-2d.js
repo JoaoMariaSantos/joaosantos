@@ -1,4 +1,4 @@
-/* Based on Alex Arnell's inheritance implementation. */
+/* https://techinscribed.com/make-google-gravity-pages/ */
 var Class = {
     create: function() {
       var parent = null, properties = $A(arguments);
