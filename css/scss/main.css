@@ -83,14 +83,8 @@ img {
   cursor: -webkit-grab;
   cursor: grab;
 }
-img:hover {
-  filter: brightness(90%) saturate(80%);
-}
-img.hasLink {
-  border: 2px solid rgba(0, 0, 0, 0);
-}
 img.hasLink:hover {
-  border: 2px solid black;
+  filter: brightness(90%) saturate(80%);
 }
 
 input {
