@@ -35,7 +35,6 @@ const tips = [
     'Use letters or numbers to write and enter to search',
     'You can press backspace to erase the last character if you make a typo',
     'Writing delete erases the screen',
-    "The border around the images means there's a link!",
     'Try dragging characters or images...',
     'Typing makes sounds',
     'Type featured to get some of my favorite works',
@@ -295,27 +294,6 @@ function getBuiltInResult(srch) { //['help', 'about', 'keywords', 'reset', 'dele
             setBackgroundText('A random project');
             break;
     }
-
-    /* if (srch === 'help') {
-        setBackgroundText(help);
-        appendParagraph(help)
-    } else if (srch === 'about') {
-        setBackgroundText(about);
-        appendParagraph(about);
-    } else if (srch === 'keywords') {
-        setBackgroundText('keywords keywords keywords keywords keywords keywords keywords keywords keywords keywords keywords keywords keywords keywords keywords keywords keywords keywords keywords keywords keywords keywords keywords keywords keywords keywords keywords keywords keywords keywords keywords keywords keywords keywords keywords keywords keywords keywords keywords keywords keywords keywords keywords keywords keywords keywords keywords keywords keywords keywords keywords keywords keywords');
-    } else if (srch === 'reset' || srch === 'delete' || srch === 'erase') {
-        resetCanvas();
-    } else if (srch === 'refresh') {
-        refresh();
-    } else if (srch === 'portfolio') {
-        window.open(portfolioURL, '_blank');
-    } else if (srch === 'spotify') {
-        window.open(spotifyURL, '_blank');
-    } else if (srch === 'random') {
-        const searchResults = [posts[Math.floor(Math.random()*posts.length)]];
-        appendPosts(searchResults);
-    } */
 }
 
 function getRandomTip() {
@@ -336,8 +314,8 @@ function setBackgroundText(text) {
 
 
 function handleBlocker() {
+    playSound(otherAudio);
     getRandomTip();
-    console.log('blocker clicked');
 }
 
 function handleImgHover(text) {
