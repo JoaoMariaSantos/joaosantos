@@ -60,9 +60,15 @@ img {
     filter: brightness(100%);
     cursor: grab;
 
+    &:hover {
+        filter: brightness(90%) saturate(80%);
+    }
+
     &.hasLink {
+        border: 2px solid rgba(0, 0, 0, 0);
+
         &:hover {
-            filter: brightness(90%) saturate(80%);
+            border: 2px solid black;
         }
     }
 }
