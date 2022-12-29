@@ -6,6 +6,10 @@ span {
     cursor: grab;
 }
 
+#canvas * {
+    user-select: none;
+}
+
 .body {
     position: relative;
 
@@ -26,7 +30,6 @@ span {
     position: absolute;
     align-items: center;
     justify-content: center;
-    pointer-events: none;
 
     p {
         display: block;
@@ -35,32 +38,35 @@ span {
         color: $black;
         font-size: 3vw;
         opacity: 0.8;
+        cursor: pointer;
+        user-select: none;
     }
 }
 
-p.box2d{
-    p {
-        display: block;
-        width: 50%;
-        height: min-content;
-        color: $black;
-        font-size: 2vw;
-        pointer-events: none;
-        opacity: 1;
-        cursor: grab;
-    }
+p.box2d {
+    display: block;
+    width: 50%;
+    height: min-content;
+    color: $black;
+    font-size: 1.5vw;
+    pointer-events: none;
+    opacity: 1;
+    cursor: grab;
 }
 
 img {
     position: absolute;
     filter: brightness(100%);
     cursor: grab;
+
     &:hover {
         filter: brightness(90%) saturate(80%);
     }
-    &.hasLink{
+
+    &.hasLink {
         border: 2px solid rgba(0, 0, 0, 0);
-        &:hover{
+
+        &:hover {
             border: 2px solid black;
         }
     }
@@ -68,17 +74,6 @@ img {
 
 input {
     display: none;
-}
-
-#blocker{
-    display: block;
-    position: absolute;
-    left: 15vw;
-    top: 15vh;
-    width: 70vw;
-    height: 70vh;
-    z-index: -1;
-    cursor: pointer;
 }
 
 @media (pointer:coarse) {
@@ -93,7 +88,10 @@ input {
         font-weight: 300;
         border: 1px solid black;
         background-color: rgb(239, 239, 239);
-        &:hover, &:active, &:focus{
+
+        &:hover,
+        &:active,
+        &:focus {
             outline: none !important;
             border: 1px solid black;
             background-color: white;
@@ -102,7 +100,7 @@ input {
 }
 
 img {
-    &.hasLink{
+    &.hasLink {
         border: 2px solid black;
     }
 }

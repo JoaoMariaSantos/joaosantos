@@ -1,15 +1,14 @@
 import { posts } from '/joaosantos/js/postList.js'; /* /joaosantos */
 
 const about = "Hello! My name is João, I'm 22 years old and from Portugal. Currently doing a masters degree in Design and Multimedia and this website is an exercise for the course. Enjoy!";
-const help = "Use letters and numbers to write, enter to search, backspace to erase the last character and write or press delete to reset the screen.";
+const help = "Use letters and numbers to write and press enter to search. Pressing backspace will erase the last character. Write or press delete to reset the screen.";
 
 const regex = /^[0-9a-zA-Z]+$/;
 
 const container = document.querySelector('#canvas');
 const backgroundText = document.querySelector('#instructions__text');
 const inputText = document.querySelector('#inputText');
-/* const blocker = document.querySelector('#blocker'); */
-const blocker = document.querySelector('#blocker');
+const blocker = document.querySelector('#instructions__text');
 
 const portfolioURL = 'https://drive.google.com/file/d/1mGWpbq1SQyNWfmL_Ek3SiI2agA9B3_Ra/view?usp=share_link';
 const spotifyURL = 'https://open.spotify.com/user/tellajoke?si=a044e4969dbc457d';
@@ -21,10 +20,12 @@ let currentSearch = '';
 let currentLeft;
 let lastTip;
 
-const backspaceAudio = [new Audio('/joaosantos/assets/audio/back_1.wav'), new Audio('/joaosantos/assets/audio/back_2.wav'), new Audio('/joaosantos/assets/audio/back_3.wav')]; /* /joaosantos */
-const otherAudio = [new Audio('/joaosantos/assets/audio/other_1.wav'), new Audio('/joaosantos/assets/audio/other_2.wav'), new Audio('/joaosantos/assets/audio/other_3.wav')]; /* /joaosantos */
-const enterAudio = [new Audio('/joaosantos/assets/audio/enter_1.wav')]; /* /joaosantos */
-const deleteAudio = [new Audio('/joaosantos/assets/audio/delete_1.wav')]; /* /joaosantos */
+const audioPath = '/joaosantos/assets/audio/';  /* /joaosantos */
+
+const backspaceAudio = [new Audio(audioPath + 'back_1.wav'), new Audio(audioPath + 'back_2.wav'), new Audio(audioPath + 'back_3.wav')];
+const otherAudio = [new Audio(audioPath + 'other_1.wav'), new Audio(audioPath + 'other_2.wav'), new Audio(audioPath + 'other_3.wav')];
+const enterAudio = [new Audio(audioPath + 'enter_1.wav')];
+const deleteAudio = [new Audio(audioPath + 'delete_1.wav')];
 
 const tips = [
     'Try writing a color and then pressing enter!',
@@ -331,7 +332,8 @@ function refresh() {
 
 function isInt(num){
     const parsed = parseInt(num);
-    return !isNaN(parsed);
+    let isnum = /^\d+$/.test(num);
+    return !isNaN(parsed) && isnum;
 }
 
 function shuffle(array) {
