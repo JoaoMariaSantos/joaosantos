@@ -291,6 +291,7 @@ function getBuiltInResult(srch) { //['help', 'about', 'keywords', 'reset', 'dele
             break;
         case 'random':
             const searchResults = [posts[Math.floor(Math.random()*posts.length)]];
+            appendPosts(searchResults);
             break;
     }
 
