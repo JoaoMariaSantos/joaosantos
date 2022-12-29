@@ -20,7 +20,7 @@ let currentSearch = '';
 let currentLeft;
 let lastTip;
 
-const audioPath = '/assets/audio/';  /* /joaosantos */
+const audioPath = '/joaosantos/assets/audio/';  /* /joaosantos */
 
 const backspaceAudio = [new Audio(audioPath + 'back_1.wav'), new Audio(audioPath + 'back_2.wav'), new Audio(audioPath + 'back_3.wav')];
 const otherAudio = [new Audio(audioPath + 'other_1.wav'), new Audio(audioPath + 'other_2.wav'), new Audio(audioPath + 'other_3.wav')];

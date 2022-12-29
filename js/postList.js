@@ -1,4 +1,4 @@
-import {Post} from '/js/post.js' /* /joaosantos */
+import {Post} from '/joaosantos/js/post.js' /* /joaosantos */
 
 let posts = [];
 
